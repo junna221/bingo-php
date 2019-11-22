@@ -2,13 +2,14 @@
 $numus = [];
 
 for ($i = 0; $i < 5; $i++) {
-  $col = renge($i * 15 + 1, $i * 15 + 15);
+  $col = range($i * 15 + 1, $i * 15 + 15);
   shuffle($col);
-  $nums[$1] = array_slice($col, 0, 5);
+  $nums[$i] = array_slice($col, 0, 5);
 }
+  function h($s) {
+    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+  }
 
-var_dump($nums)
-exit;
 ?>
 
 <!DOVTYPE thml>
@@ -24,13 +25,13 @@ exit;
       <tr>
         <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
       </tr>
+      <?php for ($i = 0; $i < 6; $i++): ?>
       <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
+        <?php for ($j = 0; $j < 5; $j++): ?>
+        <td><?= h($nums[$j][$i]); ?></td>
+        <?php endfor; ?>
       </tr>
+      <?php endfor; ?>
     </table>
   </div>
 </body>
