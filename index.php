@@ -1,15 +1,10 @@
 <?php
-$numus = [];
 
-for ($i = 0; $i < 5; $i++) {
-  $col = range($i * 15 + 1, $i * 15 + 15);
-  shuffle($col);
-  $nums[$i] = array_slice($col, 0, 5);
-}
-  function h($s) {
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-  }
+require_once(__DIR__ . '/config.php');
+require_once(__DIR__ . '/Bingo.php');
 
+$bingo = new \MyApp\Bingo();
+$nums = $bingo->create();
 ?>
 
 <!DOVTYPE thml>
@@ -25,7 +20,7 @@ for ($i = 0; $i < 5; $i++) {
       <tr>
         <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
       </tr>
-      <?php for ($i = 0; $i < 6; $i++): ?>
+      <?php for ($i = 0; $i < 5; $i++): ?>
       <tr>
         <?php for ($j = 0; $j < 5; $j++): ?>
         <td><?= h($nums[$j][$i]); ?></td>
